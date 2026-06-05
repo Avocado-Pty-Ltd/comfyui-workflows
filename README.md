@@ -3,57 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ComfyUI Workflows — Avocado Pty Ltd</title>
-<style>
-  :root {
-    --bg: #0e0f12;
-    --panel: #16181d;
-    --border: #262931;
-    --text: #e6e7ea;
-    --muted: #9aa0aa;
-    --accent: #8be9b4;
-    --code-bg: #1c1f26;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    padding: 48px 24px;
-  }
-  main { max-width: 820px; margin: 0 auto; }
-  h1 { font-size: 1.9rem; margin: 0 0 4px; }
-  h2 { font-size: 1.25rem; margin: 36px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-  h3 { font-size: 1.05rem; margin: 24px 0 8px; color: var(--accent); }
-  p, li { color: var(--text); }
-  .tagline { color: var(--muted); margin: 0 0 8px; }
-  .badges { margin: 12px 0 24px; }
-  .badge {
-    display: inline-block; font-size: 0.78rem; padding: 3px 8px; margin-right: 6px;
-    background: var(--panel); border: 1px solid var(--border); border-radius: 4px; color: var(--muted);
-  }
-  code, pre {
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.88rem;
-  }
-  code { background: var(--code-bg); padding: 1px 5px; border-radius: 3px; color: #cfd5dd; }
-  pre {
-    background: var(--code-bg); padding: 14px 16px; border-radius: 6px;
-    border: 1px solid var(--border); overflow-x: auto; line-height: 1.45;
-  }
-  pre code { background: none; padding: 0; }
-  table { border-collapse: collapse; width: 100%; margin: 8px 0 16px; }
-  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
-  th { color: var(--muted); font-weight: 500; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; }
-  a { color: var(--accent); }
-  ul { padding-left: 22px; }
-  .callout {
-    background: var(--panel); border: 1px solid var(--border); border-left: 3px solid var(--accent);
-    padding: 12px 16px; border-radius: 4px; margin: 16px 0; color: var(--muted);
-  }
-  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
-</style>
 </head>
 <body>
 <main>
