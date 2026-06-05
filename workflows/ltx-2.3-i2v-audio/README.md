@@ -9,6 +9,13 @@ and speech share noise schedules and stay in sync at decode time.
 This document walks the graph node-by-node. For the high-level pipeline summary,
 required custom nodes, and required model files, see the [top-level README](../../README.md).
 
+**Two files, same graph:**
+
+- [`ltx-2.3-i2v-audio.json`](ltx-2.3-i2v-audio.json) — **API format**, POST to `/prompt`. The
+  node IDs referenced throughout this document (`4`, `15`, `39`, …) are this file's IDs.
+- [`ltx-2.3-i2v-audio-workflow.json`](ltx-2.3-i2v-audio-workflow.json) — **editor format**, drag
+  onto the ComfyUI canvas. Same nodes and connections, laid out left-to-right by execution order.
+
 ---
 
 ## Graph topology

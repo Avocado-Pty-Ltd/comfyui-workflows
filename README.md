@@ -13,14 +13,19 @@
 <div class="badges">
   <span class="badge">ComfyUI</span>
   <span class="badge">LTX-Video 2.3</span>
-  <span class="badge">API-format JSON</span>
+  <span class="badge">API + editor JSON</span>
   <span class="badge">MIT</span>
 </div>
 
 <p>This repository collects the ComfyUI workflows that power our internal video-generation
-pipeline. Each file is the raw API-format graph that gets POSTed to <code>/prompt</code> on a
-ComfyUI server — not the editor-format <code>.json</code> you drop on the canvas. Drop it into
-a backend, swap inputs, and submit.</p>
+pipeline. Each graph ships in <strong>two formats</strong>:</p>
+<ul>
+  <li><strong>API format</strong> (<code>*.json</code>) — the raw graph that gets POSTed to
+  <code>/prompt</code> on a ComfyUI server. Drop it into a backend, swap inputs, and submit.</li>
+  <li><strong>Editor format</strong> (<code>*-workflow.json</code>) — the canvas graph you drag
+  onto the ComfyUI window (or <em>Workflow → Open</em>) to inspect and edit it node-by-node.</li>
+</ul>
+<p>The two describe the same pipeline; pick the one that matches how you work.</p>
 
 <h2>Workflows</h2>
 <table>
@@ -29,7 +34,7 @@ a backend, swap inputs, and submit.</p>
   </thead>
   <tbody>
     <tr>
-      <td><a href="workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio.json"><code>workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio.json</code></a> · <a href="workflows/ltx-2.3-i2v-audio/README.md">node reference</a></td>
+      <td><a href="workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio.json"><code>ltx-2.3-i2v-audio.json</code></a> (API) · <a href="workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio-workflow.json"><code>ltx-2.3-i2v-audio-workflow.json</code></a> (editor) · <a href="workflows/ltx-2.3-i2v-audio/README.md">node reference</a></td>
       <td>LTX-Video 2.3 (22B distilled, GGUF Q4_0)</td>
       <td>Image-to-video with synchronized speech and a reference-voice identity anchor. Two-stage sampler with a spatial upscaler pass.</td>
     </tr>
@@ -67,7 +72,7 @@ generated voice stays consistent across clips of the same character.</p>
   </tbody>
 </table>
 
-<h3>Required custom nodes</h3>
+<h3 id="required-custom-nodes">Required custom nodes</h3>
 <ul>
   <li><a href="https://github.com/Lightricks/ComfyUI-LTXVideo">ComfyUI-LTXVideo</a> — all <code>LTXV*</code> nodes.</li>
   <li><a href="https://github.com/city96/ComfyUI-GGUF">ComfyUI-GGUF</a> — <code>UnetLoaderGGUF</code>.</li>
@@ -89,6 +94,15 @@ generated voice stays consistent across clips of the same character.</p>
     <tr><td>Spatial upscaler</td><td><code>ltx-2.3-spatial-upscaler-x2-1.1.safetensors</code></td><td><code>models/upscale_models/</code></td></tr>
   </tbody>
 </table>
+
+<h3>Opening in the ComfyUI editor</h3>
+
+<p>Drag <a href="workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio-workflow.json"><code>ltx-2.3-i2v-audio-workflow.json</code></a>
+onto the ComfyUI canvas (or use <em>Workflow → Open</em>). Install the
+<a href="#required-custom-nodes">required custom nodes</a> first, otherwise ComfyUI will flag the
+<code>LTXV*</code> / <code>VHS_*</code> / KJ nodes as missing on load. The editor file is generated
+from the API graph by <code>tools/api-to-editor.py</code>, so the two stay in lock-step — it lays the
+nodes out left-to-right by execution order rather than reproducing a hand-arranged canvas.</p>
 
 <h3>Submitting from a backend</h3>
 <pre><code>POST /prompt
@@ -120,8 +134,9 @@ Content-Type: application/json
 
 <h2>Contributing</h2>
 <p>PRs welcome — particularly additional production-tested graphs (T2V, V2V, lip-sync,
-upscaling). Keep workflows in API format and add a row to the table above describing
-inputs and required custom nodes.</p>
+upscaling). Commit the API-format graph and generate the editor-format companion with
+<code>python tools/api-to-editor.py in.json out-workflow.json</code>, then add a row to the
+table above describing inputs and required custom nodes.</p>
 
 <footer>
   © Avocado Pty Ltd — open-sourced as a contribution to the ComfyUI / open video-generation community.
