@@ -29,7 +29,7 @@ a backend, swap inputs, and submit.</p>
   </thead>
   <tbody>
     <tr>
-      <td><a href="workflows/ltx-2.3-i2v-audio.json"><code>workflows/ltx-2.3-i2v-audio.json</code></a></td>
+      <td><a href="workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio.json"><code>workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio.json</code></a> · <a href="workflows/ltx-2.3-i2v-audio/README.md">node reference</a></td>
       <td>LTX-Video 2.3 (22B distilled, GGUF Q4_0)</td>
       <td>Image-to-video with synchronized speech and a reference-voice identity anchor. Two-stage sampler with a spatial upscaler pass.</td>
     </tr>
@@ -95,7 +95,7 @@ generated voice stays consistent across clips of the same character.</p>
 Content-Type: application/json
 
 {
-  "prompt": &lt;contents of workflows/ltx-2.3-i2v-audio.json&gt;,
+  "prompt": &lt;contents of workflows/ltx-2.3-i2v-audio/ltx-2.3-i2v-audio.json&gt;,
   "client_id": "your-client-id"
 }</code></pre>
 
