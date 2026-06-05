@@ -1,5 +1,7 @@
 # ltx-2.3-i2v-audio
 
+[Youtube Explainer](https://www.youtube.com/watch?v=yRqeXV-B0zw)
+
 Image-to-video with synchronized speech and a reference-voice identity anchor. Two
 sampler passes (base + spatial upscaler refiner), AV latents kept together so video
 and speech share noise schedules and stay in sync at decode time.
